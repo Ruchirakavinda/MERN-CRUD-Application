@@ -43,7 +43,7 @@ retrivePost(){
         </MDBNavbar>
 
 
-      <MDBContainer fluid>
+      <MDBContainer fluid style={{padding:'0px'}}>
       <div
         className='p-5 text-center bg-image'
         style={{ backgroundImage: "url('https://mdbcdn.b-cdn.net/img/new/slides/041.jpg')", height: 200 }}
@@ -74,57 +74,30 @@ retrivePost(){
             </tr>
           </MDBTableHead>
           <MDBTableBody>
-            <tr>
-              <th scope='row'>1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td className='text-center'>
-                
-                <MDBBtn color="warning">
-                <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
-                </MDBBtn>
-                &nbsp; &nbsp; &nbsp;
-                <MDBBtn color="danger">
-                <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
-                </MDBBtn>
-              </td>
-            </tr>
-            <tr>
-              <th scope='row'>2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td className='text-center'>
-              <MDBBtn color="warning">
-                <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
-                </MDBBtn>
-                &nbsp; &nbsp; &nbsp;
-                <MDBBtn color="danger">
-                <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
-                </MDBBtn>
-              </td>
-            </tr>
-            <tr>
-              <th scope='row'>2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-              <td className='text-center'>
-              <MDBBtn color="warning">
-                <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
-                </MDBBtn>
-                &nbsp; &nbsp; &nbsp;
-                <MDBBtn color="danger">
-                <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
-                </MDBBtn>
-              </td>
-            </tr>
+            
+              {this.state.posts.map((posts,index) =>(
+                <tr>
+                  <th className='text-center' scope='row'>{index+1}</th>
+                  <td className='text-center'>{posts.topic}</td>
+                  <td className='text-center' style={{width:"35%"}}>{posts.description}</td>
+                  <td className='text-center'>{posts.category}</td>
+                  <td className='text-center' style={{width:"25%"}}>
+                  <MDBBtn color="warning">
+                    <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
+                    </MDBBtn>
+                    &nbsp; &nbsp; &nbsp;
+                    <MDBBtn color="danger">
+                    <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
+                    </MDBBtn>
+                  </td>
+               </tr>
+
+              ))}
+
           </MDBTableBody>
         </MDBTable>
-
+        <br/><br/><br/>
       </MDBContainer>
-         
       </MDBContainer>
       
     </>
