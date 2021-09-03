@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser =  require('body-parser');
+const cors = require('cors');
 
 const app = express();
 
@@ -10,6 +11,7 @@ const postRoute = require('./routes/routePosts');
 
 //app middleware
 app.use(bodyParser.json());
+app.use(cors());
 
 //route middleware
 app.use(postRoute);
@@ -22,7 +24,8 @@ mongoose.connect(dbUrl)
 .then(()=>{
     console.log("DataBase Connected");
 })
-.catch((err) =>console.log("Database connectiin error",err));
+.catch((err) =>console.log("Database connection error",err));
+
 app.listen(PORT, () => {
     console.log(`App is running on ${PORT}`)
 })
