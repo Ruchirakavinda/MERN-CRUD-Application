@@ -1,0 +1,28 @@
+{
+  "name": "MERN-CRUD-Application",
+  "version": "1.0.0",
+  "description": "Basic MERN Application with Create, Read, Update and Delete functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ruchirakavinda/MERN-CRUD-Application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ruchirakavinda/MERN-CRUD-Application/issues"
+  },
+  "homepage": "https://github.com/Ruchirakavinda/MERN-CRUD-Application#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.4",
+    "nodemon": "^2.0.12"
+  }
+}
