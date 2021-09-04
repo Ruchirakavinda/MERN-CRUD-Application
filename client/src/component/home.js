@@ -44,7 +44,7 @@ retrivePost(){
             <div className='text-white'>
               <h1 className='mb-3'>Posts</h1>
               <h4 className='mb-3'>All Posts</h4>
-              <Link className='btn btn-outline-light btn-lg' href='#!' role='button'>
+              <Link to="/add" className='btn btn-outline-light btn-lg' href='#!' role='button'>
                 Add New Post
               </Link>
              
@@ -76,7 +76,7 @@ retrivePost(){
                    
                   <th className='text-center' scope='row'>{index+1}</th>
                   <Link to ={`/post/${posts._id}`}>
-                      <td className='text-center' style={{color:"black",paddingTop:"20px"}}>{posts.topic}</td> 
+                      <th className='text-center' style={{color:"black",paddingTop:"20px"}}>{posts.topic}</th> 
                   </Link>
                   <td className='text-center' style={{width:"35%"}}>{posts.description}</td> 
                   <td className='text-center'>{posts.category}</td>
