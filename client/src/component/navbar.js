@@ -9,7 +9,7 @@ class NavBar extends Component {
             <>
                 <MDBNavbar light bgColor='light'>
                 <MDBContainer>
-                    <Link to='/' className='navbar-brand'><h3>My Posts</h3></Link>
+                    <Link to='/' className='navbar-brand'><h3>Posts.Com</h3></Link>
                     <form className='d-flex input-group w-auto'>
                     <input type='search' className='form-control' placeholder='Search posts' aria-label='Search' />
                     <MDBBtn color='dark'>Search</MDBBtn>

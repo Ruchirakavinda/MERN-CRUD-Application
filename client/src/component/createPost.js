@@ -4,7 +4,12 @@ import {
     MDBValidation,
     MDBInput,
     MDBBtn,
-    MDBContainer
+    MDBContainer,
+    MDBModal,
+    MDBModalDialog,
+    MDBModalContent,
+    MDBModalHeader,
+    MDBModalTitle,
   } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
@@ -13,6 +18,10 @@ class CreatPost extends Component {
         super(props);
 
         this.state = {
+
+            basicModal:false,
+
+
             topic : "",
             description:"",
             category:""
@@ -20,6 +29,16 @@ class CreatPost extends Component {
 
         }
     }
+
+
+
+    toggleShow = () => {
+        this.setState({
+            basicModal:false,
+        })
+    }
+
+
 
     inputChange = (e) =>{
         const {name,value} = e.target;
@@ -53,6 +72,8 @@ class CreatPost extends Component {
                 if(res.data.success){
                     this.setState(
                         {
+                            basicModal:true,
+
                             topic : "",
                             description:"",
                             category:""
@@ -95,6 +116,7 @@ class CreatPost extends Component {
                 
                 <div className='col-7 mx-auto'>
                     <MDBInput
+                    textarea rows={4} 
                     name='description'
                     id='validationCustom02'
                     required
@@ -124,6 +146,23 @@ class CreatPost extends Component {
               </MDBValidation>
 
             </MDBContainer>
+
+
+
+
+
+            <MDBModal staticBackdrop show={this.state.basicModal} tabIndex='-1'>
+            <MDBModalDialog size='xl'>
+                <MDBModalContent>
+                <MDBModalHeader>
+                    <MDBModalTitle className='mx-auto'>Post added successfuly ! &nbsp; &nbsp;
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/'> OK
+                    </MDBBtn>
+                    </MDBModalTitle>
+                </MDBModalHeader>
+                </MDBModalContent>
+            </MDBModalDialog>
+            </MDBModal>
             </>
          );
     }

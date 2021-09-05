@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer,MDBBtn,MDBIcon } from 'mdb-react-ui-kit';
+import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer,MDBBtn,MDBIcon,
+  MDBModal,
+  MDBModalDialog,
+  MDBModalContent,
+  MDBModalHeader,
+  MDBModalTitle,
+  MDBModalBody,
+  MDBModalFooter } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
@@ -8,9 +15,14 @@ class Home extends Component {
     super(props);
 
     this.state = {
+
+      warningModal:false,
+
       posts:[]
     };
   }
+
+  
 
 componentDidMount(){
   this.retrivePost();
@@ -30,6 +42,18 @@ retrivePost(){
 }
 
 
+toggleShow = () => {
+  this.setState({
+      warningModal:true,
+  })
+}
+
+toggleHide = () => {
+  this.setState({
+      warningModal:false,
+  })
+}
+
   render() { 
     return ( 
 <>
@@ -42,7 +66,7 @@ retrivePost(){
         <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
             <div className='text-white'>
-              <h1 className='mb-3'>Posts</h1>
+              <h1 className='mb-3'>Your Posts</h1>
               <h4 className='mb-3'>All Posts</h4>
               <Link to="/add" className='btn btn-outline-light btn-lg' href='#!' role='button'>
                 Add New Post
@@ -81,12 +105,12 @@ retrivePost(){
                   <td className='text-center' style={{width:"35%"}}>{posts.description}</td> 
                   <td className='text-center'>{posts.category}</td>
                   <td className='text-center' style={{width:"25%"}}> 
-                  <MDBBtn color="warning">
+                  <MDBBtn color="warning" href={`/edit/${posts._id}`}>
                     <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                     </MDBBtn>
                     &nbsp; &nbsp; &nbsp;
-                    <MDBBtn color="danger">
-                    <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
+                    <MDBBtn color="danger"  onClick={this.toggleShow}>
+                    <MDBIcon icon='trash' size='lg'/> &nbsp;Delete
                     </MDBBtn>
                   </td>
                  
@@ -101,6 +125,35 @@ retrivePost(){
       </MDBContainer>
       </MDBContainer>
       
+
+
+      
+      <MDBModal staticBackdrop tabIndex='-1' show={this.state.warningModal} >
+        <MDBModalDialog size='sm' centered>
+          <MDBModalContent>
+          <MDBModalHeader>
+                    <MDBModalTitle className='mx-auto'>Delete Post
+                    </MDBModalTitle>
+                </MDBModalHeader>
+            
+            <MDBModalBody style={{textAlign:'center',padding:'10px 0px 0px 0px'}}>
+              <p>
+                Are you sure ?
+              </p>
+              </MDBModalBody>
+
+              <MDBModalBody style={{textAlign:'center',padding:'0px 0px 20px 0px'}}>
+              <MDBBtn color='light'  className='mx-auto' onClick={this.toggleHide}>
+                cancel
+                </MDBBtn>
+                &nbsp; &nbsp; &nbsp;
+              <MDBBtn color='warning' onClick={this.toggleHide} className='mx-auto'>
+                OK
+              </MDBBtn>
+            </MDBModalBody>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
     </>
      );
   }
