@@ -18,6 +18,10 @@ class Home extends Component {
 
       warningModal:false,
 
+      basicModal:false,
+
+      id2:'',
+
       posts:[]
     };
   }
@@ -42,16 +46,36 @@ retrivePost(){
 }
 
 
-toggleShow = () => {
+warningShow = (id) => {
+  
   this.setState({
+    ids:id,
       warningModal:true,
+      
   })
 }
 
-toggleHide = () => {
+warningHide = () => {
   this.setState({
       warningModal:false,
   })
+}
+
+toggleShow = () => {
+  this.setState({
+      basicModal:false,
+  })
+}
+
+onDelete =(id3)=>{
+ this.warningHide();
+  axios.delete(`/post/delete/${id3}`).then((res)=>{
+    this.setState(
+      {
+          basicModal:true,
+      })
+  })
+
 }
 
   render() { 
@@ -109,7 +133,7 @@ toggleHide = () => {
                     <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                     </MDBBtn>
                     &nbsp; &nbsp; &nbsp;
-                    <MDBBtn color="danger"  onClick={this.toggleShow}>
+                    <MDBBtn color="danger"  onClick={()=>this.warningShow(posts._id)}>
                     <MDBIcon icon='trash' size='lg'/> &nbsp;Delete
                     </MDBBtn>
                   </td>
@@ -143,17 +167,33 @@ toggleHide = () => {
               </MDBModalBody>
 
               <MDBModalBody style={{textAlign:'center',padding:'0px 0px 20px 0px'}}>
-              <MDBBtn color='light'  className='mx-auto' onClick={this.toggleHide}>
+              <MDBBtn color='light'  className='mx-auto' onClick={this.warningHide}>
                 cancel
                 </MDBBtn>
                 &nbsp; &nbsp; &nbsp;
-              <MDBBtn color='warning' onClick={this.toggleHide} className='mx-auto'>
+              <MDBBtn color='warning' onClick={() =>this.onDelete(this.id2)} className='mx-auto'>
                 OK
               </MDBBtn>
             </MDBModalBody>
           </MDBModalContent>
         </MDBModalDialog>
       </MDBModal>
+
+
+
+       
+      <MDBModal staticBackdrop show={this.state.basicModal} tabIndex='-1'>
+            <MDBModalDialog size='xl'>
+                <MDBModalContent >
+                <MDBModalHeader>
+                    <MDBModalTitle className='mx-auto'>Post deleted successfuly ! &nbsp; &nbsp;
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/'> OK
+                    </MDBBtn>
+                    </MDBModalTitle>
+                </MDBModalHeader>
+                </MDBModalContent>
+            </MDBModalDialog>
+            </MDBModal>
     </>
      );
   }
