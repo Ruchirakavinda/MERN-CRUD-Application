@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import {
     MDBValidation,
     MDBInput,
@@ -8,7 +9,63 @@ import {
 import { Link } from 'react-router-dom';
 
 class CreatPost extends Component {
-    state = {  }
+    constructor(props){
+        super(props);
+
+        this.state = {
+            topic : "",
+            description:"",
+            category:""
+
+
+        }
+    }
+
+    inputChange = (e) =>{
+        const {name,value} = e.target;
+        this.setState({
+            ...this.state,
+            [name]:value
+
+        })
+    }
+
+    onSubmit = (e) =>{
+        
+        e.preventDefault();
+
+        const {topic,description,category}= this.state;
+        const val1 = document.form01.topic.value;
+        const val2 = document.form01.description.value;
+        const val3 = document.form01.category.value;
+
+        if(val1!=="" && val2!=="" && val3!==""){
+            const data = {
+                topic:topic,
+                description:description,
+                category:category,
+            }
+            console.log(data);
+
+
+
+            axios.post("/post/save",data).then((res) =>{
+                if(res.data.success){
+                    this.setState(
+                        {
+                            topic : "",
+                            description:"",
+                            category:""
+                        }
+                    )
+
+                }
+            })
+
+
+        }
+        
+    }
     render() { 
         return ( 
             <>
@@ -22,7 +79,7 @@ class CreatPost extends Component {
                 </div>
                </header>
             <MDBContainer>
-              <MDBValidation className='row g-3 mx-auto' noValidate style={{ maxWidth: '80%', marginTop:"2%" }}>
+              <MDBValidation name="form01" className='row g-3 mx-auto' noValidate style={{ maxWidth: '80%', marginTop:"2%" }}>
                 <div className='col-7 mx-auto'>
                     <MDBInput
                     name='topic'
@@ -31,32 +88,38 @@ class CreatPost extends Component {
                     label='Post Topic'
                     validation='Please provide a post topic.'
                     invalid
-                    />
-                </div>
-                
-                <div className='col-md-7 mx-auto'>
-                    <MDBInput
-                    name='desc'
-                    id='validationCustom03'
-                    required
-                    label='Post Description'
-                    validation='Please provide a post description.'
-                    invalid
-                    />
-                </div>
-                <div className='col-md-7 mx-auto'>
-                    <MDBInput
-                    name='Cate'
-                    id='validationCustom05'
-                    required
-                    label='Post Category'
-                    validation='Please provide a post Category.'
-                    invalid
+                    value={this.state.topic}
+                    onChange={this.inputChange}
                     />
                 </div>
                 
                 <div className='col-7 mx-auto'>
-                    <MDBBtn type='submit' color="dark">Add Post</MDBBtn>
+                    <MDBInput
+                    name='description'
+                    id='validationCustom02'
+                    required
+                    label='Post Description'
+                    validation='Please provide a post description.'
+                    invalid
+                    value={this.state.description}
+                    onChange={this.inputChange}
+                    />
+                </div>
+                <div className='col-7 mx-auto'>
+                    <MDBInput
+                    name='category'
+                    id='validationCustom03'
+                    required
+                    label='Post Category'
+                    validation='Please provide a post category.'
+                    invalid
+                    value={this.state.category}
+                    onChange={this.inputChange}
+                    />
+                </div>
+                
+                <div className='col-7 mx-auto'>
+                    <MDBBtn type='submit' color="dark" onClick={this.onSubmit}>Add Post</MDBBtn>
                 </div>
               </MDBValidation>
 
