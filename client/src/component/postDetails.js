@@ -65,7 +65,7 @@ class PostDetails extends Component {
                         {category}
                         </MDBCardText>
                         <MDBCardText className='pt-5'>
-                            <MDBBtn color="warning">
+                            <MDBBtn color="warning" href={`/edit/${this.props.match.params.id}`}>
                             <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                             </MDBBtn>
                             &nbsp; &nbsp; &nbsp;
