@@ -78,7 +78,7 @@ router.put('/post/update/:id',(req,res) =>{
 // delete posts
 
 router.delete('/post/delete/:id',(req,res) =>{
-    Posts.findOneAndRemove(req.params.id).exec((err,deletedPost) =>{
+    Posts.findByIdAndRemove(req.params.id).exec((err,deletedPost) =>{
         if(err){
             return res.status(400).json({
                 message: "Delete Unsuccesful",err
