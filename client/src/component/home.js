@@ -16,11 +16,11 @@ class Home extends Component {
 
     this.state = {
 
+      id2:'',
+
       warningModal:false,
 
       basicModal:false,
-
-      id2:'',
 
       posts:[]
     };
@@ -30,11 +30,10 @@ class Home extends Component {
 
 componentDidMount(){
   this.retrivePost();
-  
 }
 
 retrivePost(){
-  axios.get('http://localhost:8000/posts').then (res =>{
+  axios.get('/posts').then (res =>{
     if (res.data.success){
       this.setState({
         posts:res.data.existingPosts
@@ -47,12 +46,14 @@ retrivePost(){
 
 
 warningShow = (id) => {
-  
+
   this.setState({
-    ids:id,
-      warningModal:true,
-      
-  })
+    warningModal:true,
+    id2:id
+    
+  });
+  
+  
 }
 
 warningHide = () => {
@@ -66,6 +67,9 @@ toggleShow = () => {
       basicModal:false,
   })
 }
+
+
+
 
 onDelete =(id3)=>{
  this.warningHide();
@@ -171,7 +175,7 @@ onDelete =(id3)=>{
                 cancel
                 </MDBBtn>
                 &nbsp; &nbsp; &nbsp;
-              <MDBBtn color='warning' onClick={() =>this.onDelete(this.id2)} className='mx-auto'>
+              <MDBBtn color='warning' onClick={() =>this.onDelete(this.state.id2)} className='mx-auto'>
                 OK
               </MDBBtn>
             </MDBModalBody>
