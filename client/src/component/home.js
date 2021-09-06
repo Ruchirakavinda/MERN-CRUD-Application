@@ -7,7 +7,7 @@ import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer,MDBBtn,MDBIcon,
   MDBModalHeader,
   MDBModalTitle,
   MDBModalBody,
-  MDBModalFooter } from 'mdb-react-ui-kit';
+ } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
@@ -69,7 +69,31 @@ toggleShow = () => {
 }
 
 
+filterData(posts,searchKey){
 
+  const result = posts.filter((e) =>
+  e.topic.toLowerCase().includes(searchKey) ||
+  e.description.toLowerCase().includes(searchKey) ||
+  e.category.toLowerCase().includes(searchKey)
+  
+  );
+
+  this.setState({posts:result})
+}
+
+
+
+handleSearch = (e) =>{
+  const searchKey = e.currentTarget.value
+
+  axios.get('/posts').then (res =>{
+    if (res.data.success){
+    
+      this.filterData(res.data.existingPosts,searchKey)
+    }
+  });
+
+}
 
 onDelete =(id3)=>{
  this.warningHide();
@@ -97,6 +121,7 @@ onDelete =(id3)=>{
               <h1 className='mb-3'>Your Posts</h1>
               <h4 className='mb-3'>All Posts</h4>
               <Link to="/add" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+              <MDBIcon fas icon="user-plus" size='lg' />&nbsp; &nbsp;
                 Add New Post
               </Link>
              
@@ -108,7 +133,16 @@ onDelete =(id3)=>{
 
 
       <MDBContainer>
-        <br/><br/><br/>
+        <br/><br/>
+        <div className="d-flex justify-content-between">
+        <MDBBtn onClick={() => window.location.reload(false)} color='light'> <MDBIcon fas icon="sync-alt" size='lg' /></MDBBtn>
+        <form className='d-flex input-group ' style={{width:"500px"}} >
+              <input type='search' className='form-control' placeholder='Search post' aria-label='Search' onChange={this.handleSearch} />
+              <MDBBtn color='dark' >reset</MDBBtn>
+        </form>
+        </div>
+        
+        <br/>
       <MDBTable hover>
           <MDBTableHead dark>
             <tr>

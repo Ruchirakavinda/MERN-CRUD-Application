@@ -4,7 +4,6 @@ import {
     MDBContainer,
     MDBNavbarBrand,
   } from 'mdb-react-ui-kit';
-import { Link } from 'react-router-dom';
 
 class NavBar extends Component {
     state = {  }
@@ -13,7 +12,7 @@ class NavBar extends Component {
             <>
                  <MDBNavbar sticky  light bgColor='light'>
                     <MDBContainer >
-                    <MDBNavbarBrand href='/'><h3>Fixed top</h3></MDBNavbarBrand>
+                    <MDBNavbarBrand href='/'><h3>Posts.com</h3></MDBNavbarBrand>
                     </MDBContainer>
                 </MDBNavbar>
             </>

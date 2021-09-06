@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { MDBContainer,MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol,MDBBtn,MDBIcon   } from 'mdb-react-ui-kit';
+import { MDBContainer,MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol,MDBBtn,MDBIcon,
+    MDBModal,
+    MDBModalDialog,
+    MDBModalContent,
+    MDBModalHeader,
+    MDBModalTitle,
+    MDBModalBody,   } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
 class PostDetails extends Component {
@@ -8,6 +14,11 @@ class PostDetails extends Component {
         super(props);
 
         this.state = {
+
+            warningModal:false,
+
+            basicModal:false,
+
             post:{}
           };
 
@@ -27,6 +38,46 @@ class PostDetails extends Component {
             }
         });
     }
+
+
+    onDelete =(id3)=>{
+        this.warningHide();
+         axios.delete(`/post/delete/${id3}`).then((res)=>{
+           this.setState(
+             {
+                 basicModal:true,
+             })
+         })
+       
+       }
+
+
+
+
+    
+ warningShow = () => {
+
+    this.setState({
+      warningModal:true,      
+    });
+    
+  }
+  
+
+  warningHide = () => {
+    this.setState({
+        warningModal:false,
+    })
+  }
+  
+
+  toggleShow = () => {
+    this.setState({
+        basicModal:false,
+    })
+  }
+
+
     render() { 
 
         const {topic,description,category}= this.state.post;
@@ -69,7 +120,7 @@ class PostDetails extends Component {
                             <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                             </MDBBtn>
                             &nbsp; &nbsp; &nbsp;
-                            <MDBBtn color="danger">
+                            <MDBBtn color="danger" onClick={() => this.warningShow()}>
                             <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
                             </MDBBtn>
                         </MDBCardText>
@@ -79,6 +130,53 @@ class PostDetails extends Component {
                 </MDBRow>
                 </MDBCard>
             </MDBContainer>
+
+
+
+
+
+     <MDBModal staticBackdrop tabIndex='-1' show={this.state.warningModal} >
+        <MDBModalDialog size='sm' centered>
+          <MDBModalContent>
+          <MDBModalHeader>
+                    <MDBModalTitle className='mx-auto'>Delete Post
+                    </MDBModalTitle>
+                </MDBModalHeader>
+            
+            <MDBModalBody style={{textAlign:'center',padding:'10px 0px 0px 0px'}}>
+              <p>
+                Are you sure ?
+              </p>
+              </MDBModalBody>
+
+              <MDBModalBody style={{textAlign:'center',padding:'0px 0px 20px 0px'}}>
+              <MDBBtn color='light'  className='mx-auto' onClick={this.warningHide}>
+                cancel
+                </MDBBtn>
+                &nbsp; &nbsp; &nbsp;
+              <MDBBtn color='warning' onClick={() =>this.onDelete(this.props.match.params.id)} className='mx-auto'>
+                OK
+              </MDBBtn>
+            </MDBModalBody>
+          </MDBModalContent>
+        </MDBModalDialog>
+      </MDBModal>
+
+
+
+       
+      <MDBModal staticBackdrop show={this.state.basicModal} tabIndex='-1'>
+            <MDBModalDialog size='xl'>
+                <MDBModalContent >
+                <MDBModalHeader>
+                    <MDBModalTitle className='mx-auto'>Post deleted successfuly ! &nbsp; &nbsp;
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/'> OK
+                    </MDBBtn>
+                    </MDBModalTitle>
+                </MDBModalHeader>
+                </MDBModalContent>
+            </MDBModalDialog>
+            </MDBModal>
             </>
          );
     }
