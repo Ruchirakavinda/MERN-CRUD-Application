@@ -139,7 +139,7 @@ onDelete =(id3)=>{
         <div className="d-flex justify-content-between">
         <MDBBtn onClick={() => window.location.reload(false)} color='light'> <MDBIcon fas icon="sync-alt" size='lg' /></MDBBtn>
         <form className='d-flex input-group ' style={{width:"500px"}} >
-              <input type='search' className='form-control' placeholder='Search post' aria-label='Search' onChange={this.handleSearch} />
+              <input type='search' className='form-control' placeholder='Search member' aria-label='Search' onChange={this.handleSearch} />
               <MDBBtn color='dark' >reset</MDBBtn>
         </form>
         </div>
@@ -148,10 +148,11 @@ onDelete =(id3)=>{
       <MDBTable hover>
           <MDBTableHead dark>
             <tr>
-              <th scope='col' className='text-center'>#</th>
-              <th scope='col' className='text-center'>Topic</th>
-              <th scope='col' className='text-center'>Post Description</th>
-              <th scope='col' className='text-center'>Post Category</th>
+              <th scope='col' className='text-center'>Index</th>
+              <th scope='col' className='text-center'>Full Name</th>
+              <th scope='col' className='text-center' >About</th>
+              <th scope='col' className='text-center'>Job Role</th>
+              <th scope='col' className='text-center'>University</th>
               <th scope='col' className='text-center'>Actions</th>
             </tr>
           </MDBTableHead>
@@ -163,18 +164,19 @@ onDelete =(id3)=>{
                 <tr>
                    
                   <th className='text-center' scope='row'>{index+1}</th>
-                  <Link to ={`/post/${posts._id}`}>
-                      <th className='text-center' style={{color:"black",paddingTop:"17px"}}>{posts.topic}</th> 
+                  <Link to ={`/member/${posts._id}`}>
+                      <th className='text-center' style={{color:"rgb(170, 125, 0)",paddingTop:"17px"}}>{posts.topic}</th> 
                   </Link>
-                  <td className='text-center' style={{width:"35%"}}>{posts.description}</td> 
-                  <td className='text-center'>{posts.category}</td>
+                  <th className='text-center' style={{width:"25%"}}>{posts.description}</th> 
+                  <th className='text-center'>{posts.category}</th>
+                  <th className='text-center'>{posts.category}</th>
                   <td className='text-center' style={{width:"25%"}}> 
                   <MDBBtn color="warning" href={`/edit/${posts._id}`}>
                     <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                     </MDBBtn>
                     &nbsp; &nbsp; &nbsp;
                     <MDBBtn color="danger"  onClick={()=>this.warningShow(posts._id)}>
-                    <MDBIcon icon='trash' size='lg'/> &nbsp;Delete
+                    <MDBIcon icon='trash' size='lg'/> &nbsp;Remove
                     </MDBBtn>
                   </td>
                  
@@ -196,7 +198,7 @@ onDelete =(id3)=>{
         <MDBModalDialog size='sm' centered>
           <MDBModalContent>
           <MDBModalHeader>
-                    <MDBModalTitle className='mx-auto'>Delete Post
+                    <MDBModalTitle className='mx-auto'>Remove Member
                     </MDBModalTitle>
                 </MDBModalHeader>
             
@@ -226,8 +228,8 @@ onDelete =(id3)=>{
             <MDBModalDialog size='xl'>
                 <MDBModalContent >
                 <MDBModalHeader>
-                    <MDBModalTitle className='mx-auto'>Post deleted successfuly ! &nbsp; &nbsp;
-                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/'> OK
+                    <MDBModalTitle className='mx-auto'>Member Removed successfuly ! &nbsp; &nbsp;
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non-academic'> OK
                     </MDBBtn>
                     </MDBModalTitle>
                 </MDBModalHeader>

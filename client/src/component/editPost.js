@@ -91,7 +91,7 @@ class EditPost extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
 
-        axios.get(`/post/${id}`).then((res) =>{
+        axios.get(`/member/${id}`).then((res) =>{
             if(res.data.success){
 
                 this.setState({
@@ -117,8 +117,8 @@ class EditPost extends Component {
                 <div className='d-flex justify-content-center align-items-center h-100'>
                   <div className='text-white'>
                     <h1 className='mb-3'>Update Staff Memeber</h1>
-                    <Link to="/staff" className='btn btn-outline-light btn-lg' href='#!' role='button'>
-                      All Posts
+                    <Link to="/non-academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                      All Members
                     </Link>
                   
                   </div>
@@ -180,8 +180,8 @@ class EditPost extends Component {
             <MDBModalDialog size='xl'>
                 <MDBModalContent >
                 <MDBModalHeader>
-                    <MDBModalTitle className='mx-auto'>Post details updated successfuly ! &nbsp; &nbsp;
-                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/'> OK
+                    <MDBModalTitle className='mx-auto'>Member details updated successfuly ! &nbsp; &nbsp;
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non-academic'> OK
                     </MDBBtn>
                     </MDBModalTitle>
                 </MDBModalHeader>

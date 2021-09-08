@@ -30,7 +30,7 @@ class PostDetails extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
 
-        axios.get(`/post/${id}`).then((res) =>{
+        axios.get(`/member/${id}`).then((res) =>{
             if(res.data.success){
 
                 this.setState({
@@ -94,11 +94,11 @@ class PostDetails extends Component {
               style={{ backgroundImage:` url(${staff})`, height: 300 }}
             >
               <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
-                <div className='d-flex justify-content-center align-items-center h-50'>
+                <div className='d-flex justify-content-center align-items-center h-100'>
                   <div className='text-white'>
-                    <h1 className='mb-3'>Post Details</h1>
-                    <Link to="/" className='btn btn-outline-light btn-lg' href='#!' role='button'>
-                      All Posts
+                    <h1 className='mb-3'>Member Details</h1>
+                    <Link to="/non-academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                      All Members
                     </Link>
                   
                   </div>
@@ -108,32 +108,41 @@ class PostDetails extends Component {
            </header>
             <MDBContainer style={{paddingBottom:'50px'}}>
                 
-            <MDBCard style={{ maxWidth: '60%', marginTop:"-8%"}} className="mx-auto">
+            <MDBCard style={{ maxWidth: '60%', marginTop:"-3%"}} className="mx-auto">
                 <MDBRow className='g-0'>
                     <MDBCol md='4'>
                     <MDBCardImage src={stf} alt='...' fluid style={{height:'400px',border:'5px solid white'}} />
                     </MDBCol>
                     <MDBCol md='8'>
                     <MDBCardBody style={{overflow:'auto',height:'400px'}}>
-                        <MDBCardTitle>Post Topic</MDBCardTitle>
+                     
+                        <MDBCardTitle>Full Name</MDBCardTitle>
                         <MDBCardText>
                         {topic}
                         </MDBCardText>
-                        <MDBCardTitle>Post Description</MDBCardTitle>
+                        
+                       
+                        <MDBCardTitle>About</MDBCardTitle>
                         <MDBCardText>
                         {description}
                         </MDBCardText>
-                        <MDBCardTitle>Post Category</MDBCardTitle>
+
+                        <MDBCardTitle>Job Role</MDBCardTitle>
                         <MDBCardText>
                         {category}
                         </MDBCardText>
-                        <MDBCardText className='pt-5'>
+
+                        <MDBCardTitle>University</MDBCardTitle>
+                        <MDBCardText>
+                        {category}
+                        </MDBCardText>
+                        <MDBCardText className='pt-4'>
                             <MDBBtn color="warning" href={`/edit/${this.props.match.params.id}`}>
                             <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                             </MDBBtn>
                             &nbsp; &nbsp; &nbsp;
                             <MDBBtn color="danger" onClick={() => this.warningShow()}>
-                            <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
+                            <MDBIcon icon='trash' size='lg' /> &nbsp;Remove
                             </MDBBtn>
                         </MDBCardText>
 
@@ -153,7 +162,7 @@ class PostDetails extends Component {
         <MDBModalDialog size='sm' centered>
           <MDBModalContent>
           <MDBModalHeader>
-                    <MDBModalTitle className='mx-auto'>Delete Post
+                    <MDBModalTitle className='mx-auto'>Remove Member
                     </MDBModalTitle>
                 </MDBModalHeader>
             
@@ -183,8 +192,8 @@ class PostDetails extends Component {
             <MDBModalDialog size='xl'>
                 <MDBModalContent >
                 <MDBModalHeader>
-                    <MDBModalTitle className='mx-auto'>Post deleted successfuly ! &nbsp; &nbsp;
-                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/'> OK
+                    <MDBModalTitle className='mx-auto'>Member Removed successfuly ! &nbsp; &nbsp;
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non-academic'> OK
                     </MDBBtn>
                     </MDBModalTitle>
                 </MDBModalHeader>
