@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer,MDBBtn,MDBIcon, MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBRipple,
-    MDBModal,
-    MDBModalDialog,
-    MDBModalContent,
-    MDBModalHeader,
-    MDBModalTitle,
-    MDBModalBody,
+import { MDBContainer,MDBBtn,MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBRipple,
     MDBRow,
     MDBCol,
    } from 'mdb-react-ui-kit';
@@ -26,17 +20,14 @@ class Home extends Component {
                     <MDBCol lg='3' style={{}}>
                     <MDBCard style={{ maxWidth: '15rem' }}>
                         <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-                            <MDBCardImage src={non} fluid alt='...' />
-                            <a>
-                            <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
-                            </a>
+                            <MDBCardImage src={aca} fluid alt='...' />
                         </MDBRipple>
                         <MDBCardBody>
-                            <MDBCardTitle>Non-Academic Staff Management</MDBCardTitle>
+                            <MDBCardTitle>Academic Staff Management</MDBCardTitle>
                             <MDBCardText>
                             Some quick example text to build on the card title.
                             </MDBCardText>
-                            <MDBBtn href='/staff' color='dark'>view</MDBBtn>
+                            <MDBBtn href='#' color='dark'>get started</MDBBtn>
                         </MDBCardBody>
                         </MDBCard>
                     </MDBCol>
@@ -44,17 +35,14 @@ class Home extends Component {
                     <MDBCol lg='3' style={{textAlign:'left', paddingTop:'50px'}}>
                     <MDBCard style={{ maxWidth: '15rem'}}>
                         <MDBRipple rippleColor='light' rippleTag='div' className='bg-image hover-overlay'>
-                            <MDBCardImage src={aca} fluid alt='...' />
-                            <a>
-                            <div className='mask' style={{ backgroundColor: 'rgba(251, 251, 251, 0.15)' }}></div>
-                            </a>
+                            <MDBCardImage src={non} fluid alt='...' />
                         </MDBRipple>
                         <MDBCardBody>
-                            <MDBCardTitle>Academic Staff Management</MDBCardTitle>
+                            <MDBCardTitle>Non-Academic Staff Management</MDBCardTitle>
                             <MDBCardText>
                             Some quick example text to build on the card title .
                             </MDBCardText>
-                            <MDBBtn href='#' color='dark'>view</MDBBtn>
+                            <MDBBtn href='/non-academic' color='dark'>get started</MDBBtn>
                         </MDBCardBody>
                         </MDBCard>
                     </MDBCol>

@@ -40,7 +40,7 @@ router.get('/posts',(req,res) =>{
 
 // get a specific post
 
-router.get("/post/:id",(req,res) =>{
+router.get("/member/:id",(req,res) =>{
     let postId = req.params.id;
 
     Posts.findById(postId,(err,post) =>{

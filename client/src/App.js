@@ -22,13 +22,13 @@ class App extends Component {
 
         <Route path ="/" exact component={Home}></Route>
 
-        <Route path ="/staff" exact component={StaffHome}></Route>
+        <Route path ="/non-academic" exact component={StaffHome}></Route>
 
         <Route path ="/add" component={CreatPost}></Route>
 
         <Route path ="/edit/:id" component={EditPost}></Route>
 
-        <Route path ="/post/:id" component={PostDetails}></Route>
+        <Route path ="/member/:id" component={PostDetails}></Route>
 
       </MDBContainer>
 
