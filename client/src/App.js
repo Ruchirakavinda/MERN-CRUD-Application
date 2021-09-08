@@ -6,6 +6,7 @@ import EditPost from './component/editPost';
 import Home from './component/home';
 import NavBar from './component/navbar';
 import PostDetails from './component/postDetails';
+import StaffHome from './component/staffHome';
 
 class App extends Component {
   state = {  }
@@ -18,6 +19,8 @@ class App extends Component {
         <NavBar/>
 
         <Route path ="/" exact component={Home}></Route>
+
+        <Route path ="/staff" exact component={StaffHome}></Route>
 
         <Route path ="/add" component={CreatPost}></Route>
 
