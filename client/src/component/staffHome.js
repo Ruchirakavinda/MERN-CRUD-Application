@@ -109,7 +109,7 @@ onDelete =(id3)=>{
 
   render() { 
     return ( 
-<>
+<div >
 
       <MDBContainer fluid style={{padding:'0px'}}>
       <div
@@ -134,8 +134,8 @@ onDelete =(id3)=>{
 
 
 
-      <MDBContainer>
-        <br/><br/>
+      <MDBContainer style={{backgroundColor:'rgba(255,255,255,0.7)',marginTop:'50px'}}>
+        <br/>
         <div className="d-flex justify-content-between">
         <MDBBtn onClick={() => window.location.reload(false)} color='light'> <MDBIcon fas icon="sync-alt" size='lg' /></MDBBtn>
         <form className='d-flex input-group ' style={{width:"500px"}} >
@@ -234,7 +234,7 @@ onDelete =(id3)=>{
                 </MDBModalContent>
             </MDBModalDialog>
             </MDBModal>
-    </>
+    </div>
      );
   }
 }

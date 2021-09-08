@@ -106,9 +106,9 @@ class PostDetails extends Component {
               </div>
             </div>
            </header>
-            <MDBContainer>
+            <MDBContainer style={{paddingBottom:'50px'}}>
                 
-            <MDBCard style={{ maxWidth: '60%', marginTop:"-8%" }} className="mx-auto">
+            <MDBCard style={{ maxWidth: '60%', marginTop:"-8%"}} className="mx-auto">
                 <MDBRow className='g-0'>
                     <MDBCol md='4'>
                     <MDBCardImage src={stf} alt='...' fluid style={{height:'400px',border:'5px solid white'}} />

@@ -7,11 +7,13 @@ import Home from './component/home';
 import NavBar from './component/navbar';
 import PostDetails from './component/postDetails';
 import StaffHome from './component/staffHome';
+import './App.css';
 
 class App extends Component {
   state = {  }
   render() { 
     return (
+      <div className='app'>
       <BrowserRouter>
 
       <MDBContainer fluid style={{padding:'0px'}}>
@@ -31,6 +33,7 @@ class App extends Component {
       </MDBContainer>
 
       </BrowserRouter>
+      </div>
       );
   }
 }

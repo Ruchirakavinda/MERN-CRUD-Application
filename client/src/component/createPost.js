@@ -101,7 +101,7 @@ class CreatPost extends Component {
                 <div className='d-flex justify-content-center align-items-center h-100'>
                   <div className='text-white'>
                     <h1 className='mb-3'>Add New Staff Memeber</h1>
-                    <Link to="/" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                    <Link to="/staff" className='btn btn-outline-light btn-lg' href='#!' role='button'>
                       All Posts
                     </Link>
                   
@@ -110,7 +110,7 @@ class CreatPost extends Component {
               </div>
             </div>
                </header>
-            <MDBContainer>
+            <MDBContainer style={{paddingBottom:'100px'}}>
             
               <MDBValidation name="form01" className='row g-3 mx-auto' noValidate style={{ maxWidth: '80%', marginTop:"2%",textAlign:'center' }}>
               <MDBCardTitle className="mx-auto">Add Memeber Details</MDBCardTitle>

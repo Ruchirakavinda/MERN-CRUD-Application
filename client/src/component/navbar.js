@@ -13,7 +13,7 @@ class NavBar extends Component {
                  <MDBNavbar sticky  light bgColor='light'>
                     <MDBContainer >
                     <MDBNavbarBrand href='/'><span style={{color:'orange',fontWeight:'bolder',fontSize:'30px'}}>StaffMS</span>.com</MDBNavbarBrand>
-                    <span className='navbar-text'> <b>Staff Management System</b></span>
+                    <span className='navbar-text'> <a href='/'>STAFF MANAGEMENT SYSTEM</a></span>
                     </MDBContainer>
                 </MDBNavbar>
             </>
