@@ -117,7 +117,7 @@ class EditPost extends Component {
                 <div className='d-flex justify-content-center align-items-center h-100'>
                   <div className='text-white'>
                     <h1 className='mb-3'>Update Staff Memeber</h1>
-                    <Link to="/" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                    <Link to="/staff" className='btn btn-outline-light btn-lg' href='#!' role='button'>
                       All Posts
                     </Link>
                   
@@ -126,7 +126,7 @@ class EditPost extends Component {
               </div>
             </div>
                </header>
-            <MDBContainer>
+            <MDBContainer style={{paddingBottom:'100px'}}>
               <MDBValidation name="form02" className='row g-3 mx-auto' noValidate style={{ maxWidth: '80%', marginTop:"2%" ,textAlign:'center'}}>
               <MDBCardTitle className="mx-auto">Edit Memeber Details</MDBCardTitle>
                 <div className='col-7 mx-auto'>
