@@ -9,6 +9,9 @@ import { MDBContainer,MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardIm
     MDBModalBody,   } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
+import stf from '../img/stf.jpg';
+import staff from '../img/staff.jpg';
+
 class PostDetails extends Component {
     constructor(props){
         super(props);
@@ -86,23 +89,32 @@ class PostDetails extends Component {
         return ( 
             <>
             <header>
-                 <div className='pt-5 pb-3 text-center bg-light'>
+            <div
+              className='p-5 text-center bg-image'
+              style={{ backgroundImage:` url(${staff})`, height: 300 }}
+            >
+              <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                <div className='d-flex justify-content-center align-items-center h-50'>
+                  <div className='text-white'>
                     <h1 className='mb-3'>Post Details</h1>
-                    <Link to ="/" className='btn btn-outline-dark btn-lg' href='' role='button'>
-                    All Posts
+                    <Link to="/" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                      All Posts
                     </Link>
-                   
+                  
+                  </div>
                 </div>
-               </header>
+              </div>
+            </div>
+           </header>
             <MDBContainer>
                 
-            <MDBCard style={{ maxWidth: '60%', marginTop:"2%" }} className="mx-auto">
+            <MDBCard style={{ maxWidth: '60%', marginTop:"-8%" }} className="mx-auto">
                 <MDBRow className='g-0'>
                     <MDBCol md='4'>
-                    <MDBCardImage src='https://mdbcdn.b-cdn.net/wp-content/uploads/2020/06/vertical.jpg' alt='...' fluid />
+                    <MDBCardImage src={stf} alt='...' fluid style={{height:'400px',border:'5px solid white'}} />
                     </MDBCol>
                     <MDBCol md='8'>
-                    <MDBCardBody>
+                    <MDBCardBody style={{overflow:'auto',height:'400px'}}>
                         <MDBCardTitle>Post Topic</MDBCardTitle>
                         <MDBCardText>
                         {topic}
@@ -124,6 +136,8 @@ class PostDetails extends Component {
                             <MDBIcon icon='trash' size='lg' /> &nbsp;Delete
                             </MDBBtn>
                         </MDBCardText>
+
+                        
                     </MDBCardBody>
                     </MDBCol>
                    

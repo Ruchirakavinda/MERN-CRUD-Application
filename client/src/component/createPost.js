@@ -10,8 +10,10 @@ import {
     MDBModalContent,
     MDBModalHeader,
     MDBModalTitle,
+    MDBCardTitle
   } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
+import staff from '../img/staff.jpg';
 
 class CreatPost extends Component {
     constructor(props){
@@ -91,16 +93,27 @@ class CreatPost extends Component {
         return ( 
             <>
             <header>
-                 <div className='pt-5 pb-3 text-center bg-light'>
-                    <h1 className='mb-3'>Add New Post</h1>
-                    <Link to ="/" className='btn btn-outline-dark btn-lg' href='' role='button'>
-                    All Posts
+            <div
+              className='p-5 text-center bg-image'
+              style={{ backgroundImage:` url(${staff})`, height: 200 }}
+            >
+              <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+                <div className='d-flex justify-content-center align-items-center h-100'>
+                  <div className='text-white'>
+                    <h1 className='mb-3'>Add New Staff Memeber</h1>
+                    <Link to="/" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                      All Posts
                     </Link>
-                   
+                  
+                  </div>
                 </div>
+              </div>
+            </div>
                </header>
             <MDBContainer>
-              <MDBValidation name="form01" className='row g-3 mx-auto' noValidate style={{ maxWidth: '80%', marginTop:"2%" }}>
+            
+              <MDBValidation name="form01" className='row g-3 mx-auto' noValidate style={{ maxWidth: '80%', marginTop:"2%",textAlign:'center' }}>
+              <MDBCardTitle className="mx-auto">Add Memeber Details</MDBCardTitle>
                 <div className='col-7 mx-auto'>
                     <MDBInput
                     name='topic'
