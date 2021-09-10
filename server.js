@@ -1,7 +1,11 @@
+const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser =  require('body-parser');
 const cors = require('cors');
+
+
+dotenv.config();
 
 const app = express();
 
@@ -18,11 +22,13 @@ app.use(cors());
 app.use(postRoute);
 app.use(nonpostRoute);
 
-const PORT = 8000;
+// const PORT = 8000;
 
-const dbUrl = 'mongodb+srv://crud_01:newcrud@mernapp.3cvvu.mongodb.net/mernCrud?retryWrites=true&w=majority';
+// const dbUrl = 'mongodb+srv://crud_01:newcrud@mernapp.3cvvu.mongodb.net/mernCrud?retryWrites=true&w=majority';
 
-mongoose.connect(dbUrl)
+const PORT = process.env.PORT || 8000;
+
+mongoose.connect(process.env.CONNECTION_URL)
 .then(()=>{
     console.log("DataBase Connected");
 })
