@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //route middleware
-app.use('/pst',postRoute);
+app.use(postRoute);
 app.use(nonpostRoute);
 
 // const PORT = 8000;
