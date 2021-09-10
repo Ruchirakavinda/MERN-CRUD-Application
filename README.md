@@ -17,7 +17,7 @@ Basic MERN Application with Create, Read, Update and Delete functions
 
 ## Here are some of the screen snipts of user interface
 
-<img src = "https://github.com/Ruchirakavinda/flutter_myfirst/blob/main/screenshots/welcome.jpg" width="30%">
+<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/1.png" width="30%">
 <br>
 <br>
 
