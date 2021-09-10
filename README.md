@@ -4,6 +4,7 @@ Basic MERN Application with Create, Read, Update and Delete functions
 ## About
 
 <p>This is the Simple MERN Application with basic functinalities for a manage the staff members of a universty.</p>
+
 ## Included Functions
 - View all member details
 - View details of specific member
@@ -31,9 +32,3 @@ Basic MERN Application with Create, Read, Update and Delete functions
 - nodemon: ^2.0.12
 
 
-## Here are some of the screen snipts of user interface
-
-## Welcome Page
-<img src = "https://github.com/Ruchirakavinda/flutter_myfirst/blob/main/screenshots/welcome.jpg" width="30%">
-<br>
-<br>
