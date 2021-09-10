@@ -13,9 +13,9 @@ import {
     MDBCardTitle
   } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
-import staff from '../img/staff.jpg';
+import staff from '../../img/staff.jpg';
 
-class CreatPost extends Component {
+class NonCreatPost extends Component {
     constructor(props){
         super(props);
 
@@ -27,7 +27,7 @@ class CreatPost extends Component {
             name : "",
             about:"",
             job:"",
-            university:""
+            department:""
 
 
         }
@@ -56,24 +56,24 @@ class CreatPost extends Component {
         
         e.preventDefault();
 
-        const {name,about,job,university}= this.state;
+        const {name,about,job,department}= this.state;
         const val1 = document.form01.name.value;
         const val2 = document.form01.about.value;
         const val3 = document.form01.job.value;
-        const val4 = document.form01.university.value;
+        const val4 = document.form01.department.value;
 
         if(val1!=="" && val2!=="" && val3!=="" && val4!==""){
             const data = {
                 name:name,
                 about:about,
                 job:job,
-                university:university,
+                department:department,
             }
             console.log(data);
 
 
 
-            axios.post("/post/save",data).then((res) =>{
+            axios.post("/nonpost/save",data).then((res) =>{
                 if(res.data.success){
                     this.setState(
                         {
@@ -82,7 +82,7 @@ class CreatPost extends Component {
                             name : "",
                             about:"",
                             job:"",
-                            university:"",
+                            department:"",
                         }
                     )
 
@@ -105,8 +105,8 @@ class CreatPost extends Component {
                 <div className='d-flex justify-content-center align-items-center h-100'>
                   <div className='text-white'>
                     <h1 className='mb-3'>Add New Staff Memeber</h1>
-                    <h4 className='mb-3'>Academic Staff</h4>
-                    <Link to="/academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                    <h4 className='mb-3'>Non-Academic Staff</h4>
+                    <Link to="/non_academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
                       All Members
                     </Link>
                   
@@ -159,13 +159,13 @@ class CreatPost extends Component {
                 </div>
                 <div className='col-7 mx-auto'>
                     <MDBInput
-                    name='university'
+                    name='department'
                     id='validationCustom03'
                     required
-                    label='University'
+                    label='Department'
                     validation='Please provide a post category.'
                     invalid
-                    value={this.state.university}
+                    value={this.state.department}
                     onChange={this.inputChange}
                     />
                 </div>
@@ -186,7 +186,7 @@ class CreatPost extends Component {
                 <MDBModalContent>
                 <MDBModalHeader>
                     <MDBModalTitle className='mx-auto'>New Member added successfuly ! &nbsp; &nbsp;
-                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/academic'> OK
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non_academic'> OK
                     </MDBBtn>
                     </MDBModalTitle>
                 </MDBModalHeader>
@@ -198,4 +198,4 @@ class CreatPost extends Component {
     }
 }
  
-export default CreatPost;
+export default NonCreatPost;
