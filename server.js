@@ -28,7 +28,7 @@ app.use(nonpostRoute);
 
 const PORT = process.env.PORT || 8000;
 
-app.get('/',(req,res)=>{
+app.get('/posts',(req,res)=>{
     res.send("success");
 })
 
