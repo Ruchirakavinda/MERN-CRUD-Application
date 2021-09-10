@@ -17,7 +17,7 @@ Basic MERN Application with Create, Read, Update and Delete functions
 
 ## Here are some of the screen snipts of user interface
 
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/1.png" width="30%">
+<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/1.png" width="80%">
 <br>
 <br>
 
