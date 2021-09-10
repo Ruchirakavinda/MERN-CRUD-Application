@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //route middleware
-app.use(postRoute);
+app.use('/pst',postRoute);
 app.use(nonpostRoute);
 
 // const PORT = 8000;
@@ -28,7 +28,7 @@ app.use(nonpostRoute);
 
 const PORT = process.env.PORT || 8000;
 
-app.get('/',(req,res)=>{
+app.get('/posts',(req,res)=>{
     res.send("success");
 })
 
