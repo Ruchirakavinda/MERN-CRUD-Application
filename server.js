@@ -28,6 +28,10 @@ app.use(nonpostRoute);
 
 const PORT = process.env.PORT || 8000;
 
+app.get('/',(req,res)=>{
+    res.send("success");
+})
+
 mongoose.connect(process.env.CONNECTION_URL)
 .then(()=>{
     console.log("DataBase Connected");
