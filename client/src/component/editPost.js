@@ -24,9 +24,10 @@ class EditPost extends Component {
 
             basicModal:false,
 
-            topic : "",
-            description:"",
-            category:""
+            name : "",
+            about:"",
+            job:"",
+            university:""
 
 
         }
@@ -53,16 +54,18 @@ class EditPost extends Component {
 
         const id = this.props.match.params.id;
 
-        const {topic,description,category}= this.state;
-        const val1 = document.form02.topic.value;
-        const val2 = document.form02.description.value;
-        const val3 = document.form02.category.value;
+        const {name,about,job,university}= this.state;
+        const val1 = document.form02.name.value;
+        const val2 = document.form02.about.value;
+        const val3 = document.form02.job.value;
+        const val4 = document.form02.university.value;
 
-        if(val1!=="" && val2!=="" && val3!==""){
+        if(val1!=="" && val2!=="" && val3!=="" && val4!==""){
             const data = {
-                topic:topic,
-                description:description,
-                category:category,
+                name:name,
+                about:about,
+                job:job,
+                university:university,
             }
             console.log(data);
 
@@ -74,9 +77,10 @@ class EditPost extends Component {
                         {
                             basicModal:true,
 
-                            topic : "",
-                            description:"",
-                            category:""
+                            name : "",
+                            about:"",
+                            job:"",
+                            university:"",
                         }
                     )
 
@@ -95,9 +99,10 @@ class EditPost extends Component {
             if(res.data.success){
 
                 this.setState({
-                    topic:res.data.post.topic,
-                    description:res.data.post.description,
-                    category:res.data.post.category
+                    name:res.data.post.name,
+                    about:res.data.post.about,
+                    job:res.data.post.job,
+                    university:res.data.post.university
                 });
 
                 console.log(this.state.post);
@@ -117,7 +122,8 @@ class EditPost extends Component {
                 <div className='d-flex justify-content-center align-items-center h-100'>
                   <div className='text-white'>
                     <h1 className='mb-3'>Update Staff Memeber</h1>
-                    <Link to="/non-academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                    <h4 className='mb-3'>Academic Staff</h4>
+                    <Link to="/academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
                       All Members
                     </Link>
                   
@@ -131,13 +137,13 @@ class EditPost extends Component {
               <MDBCardTitle className="mx-auto">Edit Memeber Details</MDBCardTitle>
                 <div className='col-7 mx-auto'>
                     <MDBInput
-                    name='topic'
+                    name='name'
                     id='validationCustom01'
                     required
-                    label='Post Topic'
+                    label='Full Name'
                     validation='Please provide a post topic.'
                     invalid
-                    value={this.state.topic}
+                    value={this.state.name}
                     onChange={this.inputChange}
                     />
                 </div>
@@ -145,25 +151,37 @@ class EditPost extends Component {
                 <div className='col-7 mx-auto'>
                     <MDBInput
                     textarea rows={4} 
-                    name='description'
+                    name='about'
                     id='validationCustom02'
                     required
-                    label='Post Description'
+                    label='About'
                     validation='Please provide a post description.'
                     invalid
-                    value={this.state.description}
+                    value={this.state.about}
                     onChange={this.inputChange}
                     />
                 </div>
                 <div className='col-7 mx-auto'>
                     <MDBInput
-                    name='category'
+                    name='job'
                     id='validationCustom03'
                     required
-                    label='Post Category'
+                    label='Job Role'
                     validation='Please provide a post category.'
                     invalid
-                    value={this.state.category}
+                    value={this.state.job}
+                    onChange={this.inputChange}
+                    />
+                </div>
+                <div className='col-7 mx-auto'>
+                    <MDBInput
+                    name='university'
+                    id='validationCustom03'
+                    required
+                    label='University'
+                    validation='Please provide a post category.'
+                    invalid
+                    value={this.state.university}
                     onChange={this.inputChange}
                     />
                 </div>
@@ -181,7 +199,7 @@ class EditPost extends Component {
                 <MDBModalContent >
                 <MDBModalHeader>
                     <MDBModalTitle className='mx-auto'>Member details updated successfuly ! &nbsp; &nbsp;
-                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non-academic'> OK
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/academic'> OK
                     </MDBBtn>
                     </MDBModalTitle>
                 </MDBModalHeader>
@@ -194,5 +212,4 @@ class EditPost extends Component {
 }
  
 export default EditPost;
-<>
-</>
+

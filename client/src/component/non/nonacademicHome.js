@@ -9,9 +9,9 @@ import { MDBTable, MDBTableHead, MDBTableBody, MDBContainer,MDBBtn,MDBIcon,
   MDBModalBody,
  } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
-import man from '../img/man.jpg';
+import man from '../../img/man2.jpg';
 
-class StaffHome extends Component {
+class NonAcademicHome extends Component {
   constructor(props){
     super(props);
 
@@ -34,7 +34,7 @@ componentDidMount(){
 }
 
 retrivePost(){
-  axios.get('/posts').then (res =>{
+  axios.get('/nonposts').then (res =>{
     if (res.data.success){
       this.setState({
         posts:res.data.existingPosts
@@ -73,9 +73,10 @@ toggleShow = () => {
 filterData(posts,searchKey){
 
   const result = posts.filter((e) =>
-  e.topic.toLowerCase().includes(searchKey) ||
-  e.description.toLowerCase().includes(searchKey) ||
-  e.category.toLowerCase().includes(searchKey)
+  e.name.toLowerCase().includes(searchKey) ||
+  e.about.toLowerCase().includes(searchKey) ||
+  e.job.toLowerCase().includes(searchKey) ||
+  e.department.toLowerCase().includes(searchKey) 
   
   );
 
@@ -87,7 +88,7 @@ filterData(posts,searchKey){
 handleSearch = (e) =>{
   const searchKey = e.currentTarget.value
 
-  axios.get('/posts').then (res =>{
+  axios.get('/nonposts').then (res =>{
     if (res.data.success){
     
       this.filterData(res.data.existingPosts,searchKey)
@@ -98,7 +99,7 @@ handleSearch = (e) =>{
 
 onDelete =(id3)=>{
  this.warningHide();
-  axios.delete(`/post/delete/${id3}`).then((res)=>{
+  axios.delete(`/nonpost/delete/${id3}`).then((res)=>{
     this.setState(
       {
           basicModal:true,
@@ -116,13 +117,13 @@ onDelete =(id3)=>{
         className='p-5 text-center bg-image'
         style={{ backgroundImage:  `url(${man})`, height: 350 }}
       >
-        <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+        <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}>
           <div className='d-flex justify-content-center align-items-center h-100'>
             <div className='text-white'>
               <h1 className='mb-3'>Non-Academic Staff</h1>
               <h4 className='mb-3'>Management System</h4>
               <p>Et ullamco in veniam dolore ipsum anim.Ad incididunt occaecat amet <br/> occaecat quis dolor excepteur aliqua amet.</p>
-              <Link to="/add" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+              <Link to="/non_academic_add" className='btn btn-outline-light btn-lg' href='#!' role='button'>
               <MDBIcon fas icon="user-plus" size='lg' />&nbsp; &nbsp;
                 Add New Member
               </Link>
@@ -152,7 +153,7 @@ onDelete =(id3)=>{
               <th scope='col' className='text-center'>Full Name</th>
               <th scope='col' className='text-center' >About</th>
               <th scope='col' className='text-center'>Job Role</th>
-              <th scope='col' className='text-center'>University</th>
+              <th scope='col' className='text-center'>Department</th>
               <th scope='col' className='text-center'>Actions</th>
             </tr>
           </MDBTableHead>
@@ -164,14 +165,14 @@ onDelete =(id3)=>{
                 <tr>
                    
                   <th className='text-center' scope='row'>{index+1}</th>
-                  <Link to ={`/member/${posts._id}`}>
-                      <th className='text-center' style={{color:"rgb(170, 125, 0)",paddingTop:"17px"}}>{posts.topic}</th> 
+                  <Link to ={`/non_academic_member/${posts._id}`}>
+                      <th className='text-center' style={{color:"rgb(170, 125, 0)",paddingTop:"17px"}}>{posts.name}</th> 
                   </Link>
-                  <th className='text-center' style={{width:"25%"}}>{posts.description}</th> 
-                  <th className='text-center'>{posts.category}</th>
-                  <th className='text-center'>{posts.category}</th>
+                  <td className='text-center' style={{width:"25%"}}><b>{posts.about}</b></td> 
+                  <td className='text-center'><b>{posts.job}</b></td>
+                  <td className='text-center'><b>{posts.department}</b></td>
                   <td className='text-center' style={{width:"25%"}}> 
-                  <MDBBtn color="warning" href={`/edit/${posts._id}`}>
+                  <MDBBtn color="warning" href={`/non_academic_edit/${posts._id}`}>
                     <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                     </MDBBtn>
                     &nbsp; &nbsp; &nbsp;
@@ -229,7 +230,7 @@ onDelete =(id3)=>{
                 <MDBModalContent >
                 <MDBModalHeader>
                     <MDBModalTitle className='mx-auto'>Member Removed successfuly ! &nbsp; &nbsp;
-                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non-academic'> OK
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non_academic'> OK
                     </MDBBtn>
                     </MDBModalTitle>
                 </MDBModalHeader>
@@ -241,4 +242,4 @@ onDelete =(id3)=>{
   }
 }
  
-export default StaffHome;
+export default NonAcademicHome;

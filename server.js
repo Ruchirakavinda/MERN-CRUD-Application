@@ -8,6 +8,7 @@ const app = express();
 
 //import routs
 const postRoute = require('./routes/routePosts');
+const nonpostRoute = require('./routes/nonroutePosts ');
 
 //app middleware
 app.use(bodyParser.json());
@@ -15,6 +16,7 @@ app.use(cors());
 
 //route middleware
 app.use(postRoute);
+app.use(nonpostRoute);
 
 const PORT = 8000;
 

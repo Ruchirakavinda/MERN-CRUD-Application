@@ -27,7 +27,7 @@ class Home extends Component {
                             <MDBCardText>
                             Some quick example text to build on the card title.
                             </MDBCardText>
-                            <MDBBtn href='#' color='dark'>get started</MDBBtn>
+                            <MDBBtn href='/academic' color='dark'>get started</MDBBtn>
                         </MDBCardBody>
                         </MDBCard>
                     </MDBCol>
@@ -42,7 +42,7 @@ class Home extends Component {
                             <MDBCardText>
                             Some quick example text to build on the card title .
                             </MDBCardText>
-                            <MDBBtn href='/non-academic' color='dark'>get started</MDBBtn>
+                            <MDBBtn href='/non_academic' color='dark'>get started</MDBBtn>
                         </MDBCardBody>
                         </MDBCard>
                     </MDBCol>

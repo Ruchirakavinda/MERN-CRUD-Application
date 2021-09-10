@@ -9,10 +9,10 @@ import { MDBContainer,MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardIm
     MDBModalBody,   } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 
-import lec from '../img/lec.jpg';
-import staff from '../img/staff.jpg';
+import stf from '../../img/stf.jpg';
+import staff from '../../img/staff.jpg';
 
-class PostDetails extends Component {
+class NonPostDetails extends Component {
     constructor(props){
         super(props);
 
@@ -30,7 +30,7 @@ class PostDetails extends Component {
     componentDidMount(){
         const id = this.props.match.params.id;
 
-        axios.get(`/member/${id}`).then((res) =>{
+        axios.get(`/nonmember/${id}`).then((res) =>{
             if(res.data.success){
 
                 this.setState({
@@ -45,7 +45,7 @@ class PostDetails extends Component {
 
     onDelete =(id3)=>{
         this.warningHide();
-         axios.delete(`/post/delete/${id3}`).then((res)=>{
+         axios.delete(`/nonpost/delete/${id3}`).then((res)=>{
            this.setState(
              {
                  basicModal:true,
@@ -83,7 +83,7 @@ class PostDetails extends Component {
 
     render() { 
 
-        const {name,about,job,university}= this.state.post;
+        const {name,about,job,department}= this.state.post;
 
 
         return ( 
@@ -97,8 +97,8 @@ class PostDetails extends Component {
                 <div className='d-flex justify-content-center align-items-center h-100'>
                   <div className='text-white'>
                     <h1 className='mb-3'>Member Details</h1>
-                    <h4 className='mb-3'>Academic Staff</h4>
-                    <Link to="/academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
+                    <h4 className='mb-3'>Non-Academic Staff</h4>
+                    <Link to="/non_academic" className='btn btn-outline-light btn-lg' href='#!' role='button'>
                       All Members
                     </Link>
                   
@@ -112,7 +112,7 @@ class PostDetails extends Component {
             <MDBCard style={{ maxWidth: '60%', marginTop:"-3%"}} className="mx-auto">
                 <MDBRow className='g-0'>
                     <MDBCol md='4'>
-                    <MDBCardImage src={lec} alt='...' fluid style={{height:'400px',border:'5px solid white'}} />
+                    <MDBCardImage src={stf} alt='...' fluid style={{height:'400px',border:'5px solid white'}} />
                     </MDBCol>
                     <MDBCol md='8'>
                     <MDBCardBody style={{overflow:'auto',height:'400px'}}>
@@ -133,12 +133,12 @@ class PostDetails extends Component {
                         {job}
                         </MDBCardText>
 
-                        <MDBCardTitle>University</MDBCardTitle>
+                        <MDBCardTitle>Department</MDBCardTitle>
                         <MDBCardText>
-                        {university}
+                        {department}
                         </MDBCardText>
                         <MDBCardText className='pt-2'>
-                            <MDBBtn color="warning" href={`/edit/${this.props.match.params.id}`}>
+                            <MDBBtn color="warning" href={`/non_academic_edit/${this.props.match.params.id}`}>
                             <MDBIcon icon='feather-alt' size='lg' /> &nbsp;Edit
                             </MDBBtn>
                             &nbsp; &nbsp; &nbsp;
@@ -194,7 +194,7 @@ class PostDetails extends Component {
                 <MDBModalContent >
                 <MDBModalHeader>
                     <MDBModalTitle className='mx-auto'>Member Removed successfuly ! &nbsp; &nbsp;
-                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/academic'> OK
+                    <MDBBtn color='warning' onClick={this.toggleShow} className='mx-auto' href='/non_academic'> OK
                     </MDBBtn>
                     </MDBModalTitle>
                 </MDBModalHeader>
@@ -206,4 +206,4 @@ class PostDetails extends Component {
     }
 }
  
-export default PostDetails;
+export default NonPostDetails;

@@ -14,10 +14,10 @@ const postSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    university:{
+    department:{
         type: String,
         required:true,
     }
 });
 
-module.exports = mongoose.model('Posts',postSchema);
+module.exports = mongoose.model('non_Posts',postSchema);
