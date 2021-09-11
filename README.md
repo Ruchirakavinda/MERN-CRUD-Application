@@ -20,33 +20,6 @@ Basic MERN Application with Create, Read, Update and Delete functions
 <img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/1.png" width="100%">
 <br>
 <br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/2.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/3.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/4.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/5.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/6.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/7.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/8.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/9.png" width="100%">
-<br>
-<br>
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/10.png" width="100%">
-<br>
-<br>
 
 ## Installed Packeges
 - axios
