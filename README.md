@@ -17,7 +17,34 @@ Basic MERN Application with Create, Read, Update and Delete functions
 
 ## Here are some of the screen snipts of user interface
 
-<img src = "https://raw.githubusercontent.com/Ruchirakavinda/MERN-CRUD-Application/main/screenshots/1.png" width="100%">
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/1.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/2.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/3.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/4.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/5.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/6.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/7.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/8.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/9.png" width="100%">
+<br>
+<br>
+<img src = "https://github.com/Ruchirakavinda/Staff-Managment-System---MERN-Application/blob/main/screenshots/10.png" width="100%">
 <br>
 <br>
 
