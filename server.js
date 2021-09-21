@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.use(
     cors({
-      origin: ["https://eloquent-allen-0ee670.netlify.app"], //it acsess frontend port 3000
+      origin: ["https://staffms.netlify.app"], //it acsess frontend port 3000
       credentials: true, //it acsess tokens
     })
   );
