@@ -13,8 +13,14 @@ const nonpostRoute = require('./routes/nonroutePosts ');
 
 //app middleware
 app.use(bodyParser.json());
-app.use(cors());
 
+
+app.use(
+    cors({
+      origin: ["https://eloquent-allen-0ee670.netlify.app"], //it acsess frontend port 3000
+      credentials: true, //it acsess tokens
+    })
+  );
 //route middleware
 app.use(postRoute);
 app.use(nonpostRoute);
