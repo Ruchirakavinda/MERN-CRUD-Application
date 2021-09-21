@@ -166,7 +166,7 @@ onDelete =(id3)=>{
                    
                   <th className='text-center' scope='row'>{index+1}</th>
                   <Link to ={`/non_academic_member/${posts._id}`}>
-                      <th className='text-center' style={{color:"rgb(170, 125, 0)",paddingTop:"17px"}}>{posts.name}</th> 
+                      <th  style={{color:"rgb(170, 125, 0)",paddingTop:"17px"}}>{posts.name}</th> 
                   </Link>
                   <td className='text-center' style={{width:"25%"}}><b>{posts.about}</b></td> 
                   <td className='text-center'><b>{posts.job}</b></td>
